@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
+  padding: 10px;
   display: flex;
+  height: 600px;
+  flex-basis: 10px;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+}
+
+.div-code-outer {
+  width: 190px;
+  overflow: hidden;
+}
+
+.div-code-inner {
+  left: 0;
+  position: sticky;
+}
+
+.input-code {
+  outline: none;
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    black 70%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 270px;
+}
+
+.code-container {
   flex-direction: column;
-  align-items: center;
+  flex-shrink: 1;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 50px;
+}
+
+.file-upload-container {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+.file-download-container {
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+download-container-outer {
+  margin: 0.8rem 0 0rem 0;
+}
+
+.download-container {
+  display: flex;
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 2px solid #2196f3;
+  font-size: 15px;
+  cursor: pointer;
+  color: #2196f3;
+  background-color: white;
+  text-decoration: none;
+  line-height: 10px;
+  font-weight: bold;
+}
+.download-container:hover {
+  background-color: #2196f3;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.collapsed {
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error-text {
+  margin-top: 10px;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.content-header {
+  flex-direction: column;
+  padding-bottom: 10px;
+  color: maroon;
+  font-size: 25px;
 }
