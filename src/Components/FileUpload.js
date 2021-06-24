@@ -107,6 +107,7 @@ export default function FileUpload(props) {
                 }} 
                 type="file"
                 />
+                <br/>
                 <input type="submit" value="Submit" />
             </form>
         </div>

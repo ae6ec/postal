@@ -73,6 +73,7 @@ export default function Code(props) {
                 } } 
                 type="text"
                 />
+                <br/>
                 <input type="submit" value="Submit" />
             </form>
             <span className="error-text" >{error}</span>                
