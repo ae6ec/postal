@@ -10,24 +10,20 @@ export default function Code(props) {
     const [filecodeinput, setfilecodeinput] = useState("")
     const inputCodeForm = useRef(null);
 
-    // TODO: useeffect maybe setfilecodeinput(props.code);
-    useEffect(() => {        
-        setfilecodeinput(props.code);
-        inputCodeForm.current.value  = props.code;
+    useEffect( () => {
+            setfilecodeinput(props.code);
+            seterror("");        
+            inputCodeForm.current.value  = props.code;
+            if(props.fixCode === true){
+                inputCodeForm.current.disabled = true;
+                ConsoleHelper("Input Form Disabled");
+            }
+            else {
+                inputCodeForm.current.disabled = false;
+            }        
+        ConsoleHelper(`Props.Code changed ${inputCodeForm.current.value}`);
+    }, [props.fixCode, props.code])
 
-        if(props.fixCode === true){
-            inputCodeForm.current.disabled = true;
-            ConsoleHelper("Input Form Disabled");
-        }
-        else {
-            inputCodeForm.current.disabled = false;
-        }
-        ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.fixCode])
-
-
-    //https://getpantry.cloud/apiv1/pantry/c16c5b39-06dc-4377-bb0e-5a9b821dc65b/basket/test
     async function getAndSetFiles(){
         ConsoleHelper(`code is ${filecodeinput}`)
         
