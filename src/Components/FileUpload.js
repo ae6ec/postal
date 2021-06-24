@@ -1,5 +1,5 @@
 import '../App.css';
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import ConsoleHelper from '../helper/consolelogger';
 const FormData = require('form-data')
 const axios = require('axios')
@@ -8,7 +8,12 @@ const Apis = require('./api-endpoints')
 
 export default function FileUpload(props) {
     const [file, setfile] = useState(null)
-    const [store, setStore] = useState(null); 
+    const [store, setStore] = useState("store9"); 
+
+    useEffect(() => {
+        fetchDataStoreServer()        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     async function fetchDataStoreServer() {
         ConsoleHelper("in fetch")
@@ -16,12 +21,10 @@ export default function FileUpload(props) {
             ConsoleHelper(`Error occured while fetching file server data store : ${err}`)
         });
         ConsoleHelper(response.data)
-        ConsoleHelper(response.data.status === "ok")
-        ConsoleHelper(response.data.data.server)
 
-        if( response.data.status.toLowerCase() === "ok" )
+        if(response.data.status === "ok"){
             setStore(response.data.data.server)
-
+        }
         ConsoleHelper(`store found and selected: ${store}`)
     }  
     
@@ -32,7 +35,7 @@ export default function FileUpload(props) {
             // .catch( (err) => {
             //     ConsoleHelper(`Error occured at fetchDataStoreServer: ${err}`)
             // });
-
+            
             //uploading File 
             const formData = new FormData();
             ConsoleHelper(`File: ${file.name}`)
@@ -72,10 +75,11 @@ export default function FileUpload(props) {
             // });
             ConsoleHelper("response from clairs service")
             ConsoleHelper(res)
-            // if(res)
+
             props.setFixCode(true);
             props.setCode(res.data.fileCode);
             props.setShowDownload(false);  
+
         } catch(err) {
             ConsoleHelper(`Error occured at uploadAndGetCode: ${err}`)
         }
@@ -94,7 +98,7 @@ export default function FileUpload(props) {
         <div 
         className = {` file-upload-container ${(!(props.showDownload)) ? "" : " collapsed " }  `}
         >
-            <span className="content-header">Please Upload files here </span>
+            <span className="content-header">Please Upload Files Here</span>
             <form onSubmit={handleSubmit}>
                 <input 
                 onChange={(e) => {

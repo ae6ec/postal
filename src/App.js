@@ -1,20 +1,17 @@
-import  { useState, useRef } from 'react';
+import  { useState } from 'react';
 import './App.css';
 import Code from './Components/Code';
 import FileDownloadDiv from './Components/FilesDownloadDiv';
 import FileUpload from './Components/FileUpload';
 import Nav from './Components/Nav';
 import ConsoleHelper from './helper/consolelogger';
-import useInputCode from './customHooks/useInputCode';
 
 //TODO: add selectors as a type rather than hardcoding .download
 function App() {
   const [files, setfiles] = useState([])
   const [code, setCode] = useState("")
   const [showDownload, setShowDownload] = useState(false)
-  const inputCodeForm = useRef(null);
-  const [fixCode, setFixCode] = useInputCode(false,code,inputCodeForm)
-
+  const [fixCode, setFixCode] = useState(false); 
   function reset(){
     ConsoleHelper("Reseting all")
     setfiles([])
@@ -28,7 +25,6 @@ function App() {
       <Nav reset={reset}/>
         <div className = "main-container" >
           <Code 
-          inputCodeForm={inputCodeForm}
           fixCode={fixCode}
           setFixCode={setFixCode}
           code = {code} 
