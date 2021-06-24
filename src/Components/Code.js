@@ -13,9 +13,10 @@ export default function Code(props) {
     useEffect(() => {
         ConsoleHelper(`${Apis.API_FILE_INFO}`)
         ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
+        setfilecodeinput(props.code);
+        inputCodeForm.current.value  = props.code;
+
         if(props.fixCode === true){
-            setfilecodeinput(props.code);
-            inputCodeForm.current.value  = props.code;
             inputCodeForm.current.disabled = true;
             ConsoleHelper("disabled");
         }

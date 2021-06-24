@@ -4,6 +4,7 @@ import Code from './Components/Code';
 import FileDownloadDiv from './Components/FilesDownloadDiv';
 import FileUpload from './Components/FileUpload';
 import Nav from './Components/Nav';
+import ConsoleHelper from './helper/consolelogger';
 
 //TODO: add selectors as a type rather than hardcoding .download
 function App() {
@@ -12,18 +13,17 @@ function App() {
   const [showDownload, setShowDownload] = useState(false)
   const [fixCode, setFixCode] = useState(false)
 
-  // uploading -> setcode uploaded -> (no downloaddiv)
-  // puttingCode -> setcode uploaded no ->(downloaddiv)
-
-    //code        -> setcodeset
-    //fileupload  -> uplaoded 0 setcode 0
-    //Filedownload    -> uploaded 0 setcode 0
-
-  // TODO: disable input in Code  after setCodeSet
-  //button to reset
+  function reset(){
+    ConsoleHelper("Reseting all")
+    setfiles([])
+    setCode("")
+    setShowDownload(false)
+    setFixCode(false)
+  }
 
   return (
       <>
+      <Nav reset={reset}/>
         <div className = "main-container" >
           <Code 
           fixCode={fixCode}

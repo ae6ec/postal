@@ -1,5 +1,8 @@
+* {
+  box-sizing: border-box;
+}
 .main-container {
-  padding: 10px;
+  padding: 6rem 10px 10px 10px;
   display: flex;
   height: 600px;
   flex-basis: 10px;
@@ -12,6 +15,27 @@
   );
 }
 
+.nav {
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  height: 4rem;
+  padding-left: 10px;
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  border-radius: 5px;
+  border: 2px solid purple;
+  background-color: darkgrey;
+}
+
+.nav-logo:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
 .div-code-outer {
   width: 190px;
   overflow: hidden;
