@@ -1,5 +1,5 @@
 import '../App.css'
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState } from 'react';
 import ConsoleHelper from '../helper/consolelogger';
 const Apis = require('./api-endpoints.js')
 const axios = require('axios');
@@ -8,23 +8,22 @@ const axios = require('axios');
 export default function Code(props) {
     const [error, seterror] = useState("")
     const [filecodeinput, setfilecodeinput] = useState("")
-    const inputCodeForm = useRef(null);
 
-    useEffect(() => {
-        ConsoleHelper(`${Apis.API_FILE_INFO}`)
-        ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
-        setfilecodeinput(props.code);
-        inputCodeForm.current.value  = props.code;
+    // useEffect(() => {
+    //     ConsoleHelper(`${Apis.API_FILE_INFO}`)
+    //     ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
+    //     setfilecodeinput(props.code);
+    //     inputCodeForm.current.value  = props.code;
 
-        if(props.fixCode === true){
-            inputCodeForm.current.disabled = true;
-            ConsoleHelper("disabled");
-        }
-        else {
-            inputCodeForm.current.disabled = false;
-        }
-        ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
-    }, [props.fixCode])
+    //     if(props.fixCode === true){
+    //         inputCodeForm.current.disabled = true;
+    //         ConsoleHelper("disabled");
+    //     }
+    //     else {
+    //         inputCodeForm.current.disabled = false;
+    //     }
+    //     ConsoleHelper(`In useEffect ${props.fixCode} ${inputCodeForm.current.value}`);
+    // }, [props.fixCode])
 
     // TODO: useeffect maybe setfilecodeinput(props.code);
 
@@ -41,7 +40,7 @@ export default function Code(props) {
             props.setCode(filecodeinput);
             props.setShowDownload(true);
             props.setFixCode(true);
-        }catch(err){
+        } catch(err){
             ConsoleHelper(`Error Occured while posting data to DB: ${err}`);
             seterror("Some error occured. Please rechecking your code");              
         }
@@ -68,7 +67,7 @@ export default function Code(props) {
             onSubmit={handleSubmit}
             >
                 <input 
-                ref={inputCodeForm}
+                ref={props.inputCodeForm}
                 className="input-code"
                 onKeyPress={(e) => {if(e.target.value.length === 6) {ConsoleHelper("NO");return false;} } }
                 // oninput={(e) => {e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');} }
