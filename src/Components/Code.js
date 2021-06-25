@@ -44,6 +44,9 @@ export default function Code(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if(props.fixCode === true){
+            return
+        }
         
         if( filecodeinput.length === 6) {
             ConsoleHelper("entered else");

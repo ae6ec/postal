@@ -67,7 +67,8 @@ export default function FileUpload(props) {
             }
                 
             const res = await axios.post(Apis.API_CLAIR_FETCH, {
-                "url": response.data.data.downloadPage
+                "url": response.data.data.downloadPage,
+                "fileName": file.name
             })
             // .catch ( err => {
             //     ConsoleHelper(`Error occured while posting file to clair service : ${err}`);
