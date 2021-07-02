@@ -3,7 +3,7 @@ import React,{ useState, useEffect } from 'react';
 import ConsoleHelper from '../helper/consolelogger';
 const FormData = require('form-data')
 const axios = require('axios')
-const Apis = require('./api-endpoints')
+const Apis = require('../config/api-endpoints')
 
 
 export default function FileUpload(props) {
@@ -49,10 +49,11 @@ export default function FileUpload(props) {
             ConsoleHelper(`https://${store}${Apis.API_FILE_UPLOAD}`)
 
             const response = await axios.post(`https://${store}${Apis.API_FILE_UPLOAD}`, formData, {headers} )
-            // .catch ( err => {
-            //     ConsoleHelper(`Error occured while posting file: ${err}`);
-            //     // TODO: Add error msg to span
-            // });
+            .catch ( err => {
+                ConsoleHelper(`Error occured while posting file: ${err}`);
+                throw err;
+                // TODO: Add error msg to span
+            });
 
             ConsoleHelper("file upload response")
             ConsoleHelper(response.data)

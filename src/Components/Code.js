@@ -1,7 +1,8 @@
 import '../App.css'
 import React, { useState, useRef, useEffect } from 'react';
 import ConsoleHelper from '../helper/consolelogger';
-const Apis = require('./api-endpoints.js')
+
+const Apis = require('../config/api-endpoints.js')
 const axios = require('axios');
 
 
@@ -26,16 +27,22 @@ export default function Code(props) {
 
     async function getAndSetFiles(){
         ConsoleHelper(`code is ${filecodeinput}`)
-        
-        ConsoleHelper(`${Apis.API_FILE_INFO}${filecodeinput}`)
+
         try{
-            const res = await axios.get(`${Apis.API_FILE_INFO}${filecodeinput}`)
-            ConsoleHelper(`Retreiving file ${JSON.stringify(res)}`)
-            props.setfiles([...props.files,res.data])      
+            const data= { filecode:filecodeinput }
+            const response = await axios.post(`${Apis.API_CLAIR_FILE_INFO}`, data).catch( err => {
+                ConsoleHelper(`Error occured while fetching file data from clair: ${err}`)
+            });
+            ConsoleHelper(`Retrived file ${JSON.stringify(response.data.file)}`)
+
+            const file =response.data.file;
+            props.setfiles([...props.files, {file}])
+
             ConsoleHelper(`current files data ${props.files}`)
             props.setCode(filecodeinput);
             props.setShowDownload(true);
             props.setFixCode(true);
+
         } catch(err){
             ConsoleHelper(`Error Occured while posting data to DB: ${err}`);
             seterror("Some error occured. Please rechecking your code");              

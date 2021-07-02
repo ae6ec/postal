@@ -6,11 +6,11 @@ export default function FileDownload(props) {
 
     const fileName = props.file.fileName;
     const fileLink = props.file.fileDownload;
-    ConsoleHelper(props.file)
+    ConsoleHelper(`file at filedownload ${props.file}`)
 
     return (
         <div className="download-container-outer" >
-            <a className={"download-container"} href={fileLink} download={fileName} >
+            <a className={"download-container"} href={fileLink} download={fileLink} >
                 {fileName}
             </a>
         </div>
