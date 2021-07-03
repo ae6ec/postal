@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+.main-container {
+  padding: 6rem 10px 10px 10px;
+  display: flex;
+  height: 600px;
+  flex-basis: 10px;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+}
+
+.nav {
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  height: 4rem;
+  padding-left: 10px;
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  border-radius: 5px;
+  border: 2px solid purple;
+  background-color: darkgrey;
+}
+
+.nav-logo:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.div-code-outer {
+  width: 190px;
+  overflow: hidden;
+}
+
+.div-code-inner {
+  left: 0;
+  position: sticky;
+}
+
+.input-code {
+  outline: none;
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    black 70%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 310px;
+  font-size: larger;
+}
+
+.code-container {
+  flex-direction: column;
+  flex-shrink: 1;
+  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 50px;
+}
+
+.file-upload-container {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+.file-download-container {
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+download-container-outer {
+  margin: 0.8rem 0 0rem 0;
+}
+
+.download-container {
+  display: flex;
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 2px solid #2196f3;
+  font-size: 15px;
+  cursor: pointer;
+  color: #2196f3;
+  background-color: white;
+  text-decoration: none;
+  line-height: 10px;
+  font-weight: bold;
+}
+.download-container:hover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.collapsed {
+  display: none;
+}
+
+.error-text {
+  margin-top: 10px;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.content-header {
+  flex-direction: column;
+  padding-bottom: 10px;
+  color: maroon;
+  font-size: 25px;
+}
