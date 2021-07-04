@@ -1,7 +1,7 @@
 // Production Values
-exports.API_CLAIR_FETCH = "http://clairvoyance-cloud.herokuapp.com/fetchcloud"
-exports.API_CLAIR_TEST = "http://clairvoyance-cloud.herokuapp.com/api/health/"
-exports.API_CLAIR_FILE_INFO = "http://clairvoyance-cloud.herokuapp.com/fetchfile"
+exports.API_CLAIR_FETCH = "https://clairvoyance-cloud.herokuapp.com/fetchcloud"
+exports.API_CLAIR_TEST = "https://clairvoyance-cloud.herokuapp.com/api/health/"
+exports.API_CLAIR_FILE_INFO = "https://clairvoyance-cloud.herokuapp.com/fetchfile"
 
 // Local Values
 
